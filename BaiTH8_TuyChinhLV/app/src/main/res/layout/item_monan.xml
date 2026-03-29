@@ -1,0 +1,45 @@
+<LinearLayout
+    android:layout_height="50dp"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:padding="1dp"
+    android:background="#7A617A53"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/imAnhDaiDien"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#2196F3"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="2dp">
+
+        <TextView
+            android:id="@+id/tvTenMonAn"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            android:text="Món Thứ Nhất"/>
+
+        <TextView
+            android:id="@+id/tvDonGia"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:text="30000vnđ"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:id="@+id/tvMoTa"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:text="Com Chien"
+            android:textSize="12dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
