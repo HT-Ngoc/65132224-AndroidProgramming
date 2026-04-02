@@ -30,5 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.footerFragment, new FooterFragment())
 
                 .commit();
+
+
     }
 }
