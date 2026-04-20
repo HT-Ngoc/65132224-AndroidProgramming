@@ -1,64 +1,67 @@
 package thigk2.huynhtuanngoc.application;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ChucNang1Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ChucNang1Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    // 1. Khai báo các biến tương ứng với ID trong XML
+    private EditText edtChieuDai, edtChieuRong, edtChuVi, edtDienTich;
+    private Button btnTinh;
 
     public ChucNang1Fragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ChucNang1Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ChucNang1Fragment newInstance(String param1, String param2) {
-        ChucNang1Fragment fragment = new ChucNang1Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public static ChucNang1Fragment newInstance() {
+        return new ChucNang1Fragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cn1, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View viewcn1 = inflater.inflate(R.layout.fragment_cn1, container, false);
+        edtChieuDai = viewcn1.findViewById(R.id.edtDai);
+        edtChieuRong = viewcn1.findViewById(R.id.edtRong);
+        edtChuVi = viewcn1.findViewById(R.id.edtCV);
+        edtDienTich = viewcn1.findViewById(R.id.edtDT);
+        btnTinh = viewcn1.findViewById(R.id.btnTinh);
+        btnTinh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                xuLyTinhToan();
+            }
+        });
+
+        return viewcn1;
+    }
+
+    private void xuLyTinhToan() {
+        String strDai = edtChieuDai.getText().toString().trim();
+        String strRong = edtChieuRong.getText().toString().trim();
+        if (strDai.isEmpty() || strRong.isEmpty()) {
+            Toast.makeText(getContext(), "Vui lòng nhập đủ chiều dài và chiều rộng!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        try {
+            double dai = Double.parseDouble(strDai);
+            double rong = Double.parseDouble(strRong);
+            double chuVi = (dai + rong) * 2;
+            double dienTich = dai * rong;
+            edtChuVi.setText(String.valueOf(chuVi));
+            edtDienTich.setText(String.valueOf(dienTich));
+            Toast.makeText(getContext(), "Đã tính xong!", Toast.LENGTH_SHORT).show();
+        } catch (NumberFormatException e) {
+            Toast.makeText(getContext(), "Lỗi định dạng số!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
