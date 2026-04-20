@@ -1,11 +1,15 @@
 # 65132224-AndroidProgramming
 
+THI GIỮA KÌ - 65132224
 
 
+Chức Năng 2: Hiển Thị Các Thành Phố
 
 <img width="237" height="497" alt="Screenshot 2026-04-20 083129" src="https://github.com/user-attachments/assets/47657688-96f9-468d-b647-af6adc47a969" />
 
 
+
+Chức Năng 1 : Tính Diện Tích Và Chu Vi 
 <img width="229" height="494" alt="Screenshot 2026-04-20 083116" src="https://github.com/user-attachments/assets/de6c1d64-f05b-4967-b222-bcd4f015e2ca" />
 
 
