@@ -1,64 +1,51 @@
 package thigk2.huynhtuanngoc.application;
 
 import android.os.Bundle;
-
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ChucNang2Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ChucNang2Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private RecyclerView rcvThanhPho;
+    private ThanhPhoAdapter thanhPhoAdapter;
+    private ArrayList<ThanhPho> listThanhPho;
 
     public ChucNang2Fragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ChucNang2Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ChucNang2Fragment newInstance(String param1, String param2) {
-        ChucNang2Fragment fragment = new ChucNang2Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        listThanhPho = getDuLieuThanhPho();
     }
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cn2, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View viewcn2 = inflater.inflate(R.layout.fragment_cn2, container, false);
+        rcvThanhPho = viewcn2.findViewById(R.id.rcvThanhPho);
+        rcvThanhPho.setLayoutManager(new LinearLayoutManager(getContext()));
+        thanhPhoAdapter = new ThanhPhoAdapter(getContext(), listThanhPho);
+        rcvThanhPho.setAdapter(thanhPhoAdapter);
+        return viewcn2;
+    }
+    private ArrayList<ThanhPho> getDuLieuThanhPho() {
+        ArrayList<ThanhPho> ds = new ArrayList<>();
+        ds.add(new ThanhPho("Vũng Tàu", "vt"));
+        ds.add(new ThanhPho("TP. Hồ Chí Minh", "hcm"));
+        ds.add(new ThanhPho("Đà Nẵng", "vinh"));
+        ds.add(new ThanhPho("Nha Trang", "nt"));
+        ds.add(new ThanhPho("Hải Phòng", "hp"));
+        ds.add(new ThanhPho("Phú Yên", "nphong"));
+        ds.add(new ThanhPho("New York", "ny"));
+        ds.add(new ThanhPho("Đà Lạt", "muidien"));
+        ds.add(new ThanhPho("Cam Ranh", "cr"));
+        ds.add(new ThanhPho("Huỳnh Tuấn Ngọc - 65132224", "ganhdadia"));
+        return ds;
     }
 }
