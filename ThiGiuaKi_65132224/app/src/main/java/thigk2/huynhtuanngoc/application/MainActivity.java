@@ -1,4 +1,4 @@
-package com.tuanngoc.ontap;
+package thigk2.huynhtuanngoc.application;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -16,6 +16,9 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import thigk2.huynhtuanngoc.application.ChucNang1Fragment;
 import thigk2.huynhtuanngoc.application.ChucNang2Fragment;
+import thigk2.huynhtuanngoc.application.ChucNang3Fragment;
+import thigk2.huynhtuanngoc.application.ChucNang4Fragment;
+import thigk2.huynhtuanngoc.application.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,12 +42,10 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = new ChucNang1Fragment();
                 } else if (itemId == R.id.nav_cn2){
                     selectedFragment = new ChucNang2Fragment();
-                } else if (itemId == R.id.nav_baithuoc){
-                    selectedFragment = new ();
-                } else if (itemId == R.id.nav_monan){
-                    selectedFragment = new MonAnFragment();
-                } else if (itemId == R.id.nav_gioithieu){
-                    selectedFragment = new GioiThieuFragment();
+                } else if (itemId == R.id.nav_cn3){
+                    selectedFragment = new ChucNang3Fragment();
+                } else if (itemId == R.id.nav_cn4) {
+                    selectedFragment = new ChucNang4Fragment();
                 }
                 if (selectedFragment != null){
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentspace, selectedFragment).commit();
