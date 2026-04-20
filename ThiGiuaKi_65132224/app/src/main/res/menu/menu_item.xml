@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_cn1"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Chức Năng 1" />
+    <item
+        android:id="@+id/nav_cn2"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Chức Năng 2" />
+    <item
+        android:id="@+id/nav_cn3"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Chức Năng 3" />
+    <item
+        android:id="@+id/nav_cn4"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Chức Năng 4" />
+</menu>
